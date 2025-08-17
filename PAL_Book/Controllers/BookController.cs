@@ -43,7 +43,7 @@ namespace PAL_Book.Controllers
             [ValidateAntiForgeryToken]
             public IActionResult Create(BookDetail book)
             {
-                if (!ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
                     _repository.AddBook(book);
                     return RedirectToAction(nameof(Index));
